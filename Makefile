@@ -11,10 +11,11 @@ datadir			?=$(datarootdir)
 docdir			?=$(datarootdir)/doc/musl-compat-$(VERSION)
 mandir			?=$(datarootdir)/man
 
-BINS			= $(notdir $(basename $(wildcard bin/*.c)))
-BINS_SH			= $(notdir $(basename $(wildcard bin/*.sh)))
-INCLUDES		= $(notdir $(wildcard include/*.h))
-LIBS			= $(notdir $(wildcard lib/*.a))
+BINS			:= $(notdir $(basename $(wildcard bin/*.c)))
+BINS_SH			:= $(notdir $(basename $(wildcard bin/*.sh)))
+INCLUDES		:= $(shell find include/ -type f -name '*.h')
+INCLUDES        := $(INCLUDES:include/%=%)
+LIBS			:= $(notdir $(wildcard lib/*.a))
 
 VERSION			=1
 
