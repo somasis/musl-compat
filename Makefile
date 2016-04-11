@@ -28,13 +28,13 @@ bin/%.o: bin/%.c
 	$(CC) $(CFLAGS) $(LDFLAGS) $< -o $@
 
 $(DESTDIR)$(bindir)/%: bin/$(notdir %)
-	install -D $< $(basename $@)
+	install -D -m 755 $< $(basename $@)
 
 $(DESTDIR)$(includedir)/%: include/$(notdir %)
-	install -D $< $@
+	install -D -m 644 $< $@
 
 $(DESTDIR)$(libdir)/%: lib/$(notdir %)
-	install -D $< $@
+	install -D -m 755 $< $@
 
 install: build $(foreach b,$(BINS),$(DESTDIR)$(bindir)/$(b).o) $(foreach b,$(BINS_SH),$(DESTDIR)$(bindir)/$(b).sh) $(foreach i,$(INCLUDES),$(DESTDIR)$(includedir)/$(i)) $(foreach l,$(LIBS),$(DESTDIR)$(libdir)/$(l))
 
