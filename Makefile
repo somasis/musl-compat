@@ -17,7 +17,7 @@ INCLUDES		:= $(shell find include/ -type f -name '*.h')
 INCLUDES        := $(INCLUDES:include/%=%)
 LIBS			:= $(notdir $(wildcard lib/*.a))
 
-VERSION			=1
+VERSION			=2
 
 build:	bin/getconf.o bin/getent.o bin/ldconfig.sh
 
