@@ -11,3 +11,15 @@ Most of these things are taken from Alpine Linux's musl package.
 `libintl.a` is provided so that programs which specify `-lintl` when linking
 don't fail, but use musl's `libintl` implementation anyway. musl itself uses
 the same method for `libm`, `librt`, `libpthread`, `libcrypt`...
+
+# Licences
+
+### 2-clause BSD
+- `getconf.c`
+- `getent.c`
+- `include/sys/tree.h`
+
+### 3-clause BSD
+- `include/sys/queue.h`
+- `include/sys/tree.h`
+
