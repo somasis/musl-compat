@@ -14,6 +14,9 @@ the same method for `libm`, `librt`, `libpthread`, `libcrypt`...
 
 # Licences
 
+### MIT
+- `include/sys/cdefs.h`
+
 ### 2-clause BSD
 - `getconf.c`
 - `getent.c`
