@@ -17,7 +17,7 @@ INCLUDES        := $(shell find include/ -type f -name '*.h')
 INCLUDES        := $(INCLUDES:include/%=%)
 LIBS            := $(notdir $(wildcard lib/*.a))
 
-VERSION         =2
+VERSION         =4
 
 build:	$(foreach b,$(BINS),bin/$(b).o) $(foreach b,$(BINS_SH),bin/$(b).sh)
 
