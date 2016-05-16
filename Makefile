@@ -1,23 +1,23 @@
-CC				?=cc
-CFLAGS			?=-O2 -g
+CC              ?=cc
+CFLAGS          ?=-O2 -g
 
-prefix			?=/usr/local
-exec_prefix		?=$(prefix)
-bindir			?=$(exec_prefix)/bin
-includedir		?=$(exec_prefix)/include
-libdir			?=$(exec_prefix)/lib
-datarootdir		?=$(prefix)/share
-datadir			?=$(datarootdir)
-docdir			?=$(datarootdir)/doc/musl-compat-$(VERSION)
-mandir			?=$(datarootdir)/man
+prefix          ?=/usr/local
+exec_prefix     ?=$(prefix)
+bindir          ?=$(exec_prefix)/bin
+includedir      ?=$(exec_prefix)/include
+libdir          ?=$(exec_prefix)/lib
+datarootdir     ?=$(prefix)/share
+datadir         ?=$(datarootdir)
+docdir          ?=$(datarootdir)/doc/musl-compat-$(VERSION)
+mandir          ?=$(datarootdir)/man
 
-BINS			:= $(notdir $(basename $(wildcard bin/*.c)))
-BINS_SH			:= $(notdir $(basename $(basename $(wildcard bin/*.sh.in))))
-INCLUDES		:= $(shell find include/ -type f -name '*.h')
+BINS            := $(notdir $(basename $(wildcard bin/*.c)))
+BINS_SH         := $(notdir $(basename $(basename $(wildcard bin/*.sh.in))))
+INCLUDES        := $(shell find include/ -type f -name '*.h')
 INCLUDES        := $(INCLUDES:include/%=%)
-LIBS			:= $(notdir $(wildcard lib/*.a))
+LIBS            := $(notdir $(wildcard lib/*.a))
 
-VERSION			=2
+VERSION         =2
 
 build:	$(foreach b,$(BINS),bin/$(b).o) $(foreach b,$(BINS_SH),bin/$(b).sh)
 
