@@ -12,14 +12,14 @@ docdir			?=$(datarootdir)/doc/musl-compat-$(VERSION)
 mandir			?=$(datarootdir)/man
 
 BINS			:= $(notdir $(basename $(wildcard bin/*.c)))
-BINS_SH			:= $(notdir $(basename $(wildcard bin/*.sh)))
+BINS_SH			:= $(notdir $(basename $(basename $(wildcard bin/*.sh.in))))
 INCLUDES		:= $(shell find include/ -type f -name '*.h')
 INCLUDES        := $(INCLUDES:include/%=%)
 LIBS			:= $(notdir $(wildcard lib/*.a))
 
 VERSION			=2
 
-build:	bin/getconf.o bin/getent.o bin/ldconfig.sh
+build:	$(foreach b,$(BINS),bin/$(b).o) $(foreach b,$(BINS_SH),bin/$(b).sh)
 
 bin/%.sh: bin/%.sh.in
 	cp $< $@
