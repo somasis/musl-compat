@@ -19,7 +19,7 @@ INCLUDES        := $(shell find "$(topdir)/include" -type f -name '*.h')
 INCLUDES        := $(INCLUDES:$(topdir)/include/%=%)
 LIBS            := $(notdir $(wildcard $(topdir)/lib/*.a))
 
-VERSION         =4
+VERSION         =5
 
 build:	$(foreach b,$(BINS),$(topdir)/bin/$(b).o) $(foreach b,$(BINS_SH),$(topdir)/bin/$(b).sh)
 
