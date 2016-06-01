@@ -24,3 +24,8 @@ the same method for `libm`, `librt`, `libpthread`, `libcrypt`...
 - `include/sys/queue.h`
 - `include/sys/tree.h`
 
+## Related
+
+- [musl-fts](https://github.com/pullmoll/musl-fts)
+- [musl-obstack](https://github.com/pullmoll/musl-obstack)
+
