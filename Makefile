@@ -40,6 +40,7 @@ $(DESTDIR)$(libdir)/%: $(topdir)/lib/$(notdir %)
 	install -D -m 755 "$<" "$@"
 
 install: $(foreach b,$(BINS),$(DESTDIR)$(bindir)/$(b).o) $(foreach b,$(BINS_SH),$(DESTDIR)$(bindir)/$(b).sh) $(foreach i,$(INCLUDES),$(DESTDIR)$(includedir)/$(i)) $(foreach l,$(LIBS),$(DESTDIR)$(libdir)/$(l))
+	ln -s locale.h $(DESTDIR)$(includedir)/xlocale.h
 
 clean:
 	rm -rf $(foreach b,$(BINS),$(topdir)/bin/$(b).o) $(foreach b,$(BINS_SH),$(topdir)/bin/$(b).sh)
